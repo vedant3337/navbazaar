@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="imgs\logo.png" type="image/x-icon" />
+    <title>About Us - NavBazaar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        flex: 1;
+      }
+      .logout-button {
+        border: none;
+        background-color: transparent;
+        color: rgb(220, 219, 219);
+        cursor: pointer;
+      }
+      .logout-button:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <nav class="bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">NavBazaar</h1>
+      <div class="flex items-center justify-center">
+        <a href="/home" class="text-gray-300 hover:text-white mr-4">Home</a>
+        <a href="/profile" class="text-gray-300 hover:text-white mr-4"
+          >Profile</a
+        >
+        <form action="/logout" method="post">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container mx-auto px-4 mt-8">
+      <h2 class="text-3xl mb-4">About Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h3 class="text-xl font-semibold mb-2">Vedant Patel</h3>
+          <p><strong>Native Place:</strong> Patan</p>
+          <p><strong>Email:</strong> 22bce276@nirmauni.ac.in</p>
+          <p>
+            <strong>Instagram:</strong>
+            <a
+              href="https://www.instagram.com/vedant_3337/"
+              class="text-blue-400 hover:underline"
+              >@vedant_3337</a
+            >
+          </p>
+          <p>
+            <strong>GitHub:</strong>
+            <a
+              href="https://github.com/vedant3337"
+              class="text-blue-400 hover:underline"
+              >@vedant3337</a
+            >
+          </p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h3 class="text-xl font-semibold mb-2">Rahul Morabiya</h3>
+          <p><strong>Native Place:</strong> Jamnagar</p>
+          <p><strong>Email:</strong> 22bce291@nirmauni.ac.in</p>
+          <p>
+            <strong>Instagram:</strong>
+            <a
+              href="https://www.instagram.com/rahul_morabiya/"
+              class="text-blue-400 hover:underline"
+              >@rahul_morabiya</a
+            >
+          </p>
+          <p>
+            <strong>GitHub:</strong>
+            <a
+              href="https://github.com/rahul_morabiya/"
+              class="text-blue-400 hover:underline"
+              >@rahul_morabiya</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-gray-800 p-4">
+      <div class="container mx-auto text-center">
+        <p class="text-gray-400">Enjoy Shopping</p>
+      </div>
+    </footer>
+  </body>
+</html>

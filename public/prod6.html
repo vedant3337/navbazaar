@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="imgs\logo.png" type="image/x-icon" />
+    <title>NBwm</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #111827;
+        color: #f3f4f6;
+      }
+      .product-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .product-description p {
+        font-size: 1.1rem;
+        color: #d1d5db;
+        margin-bottom: 1.5rem;
+      }
+      .product-description p strong {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <section class="container mx-auto mt-8 product-section">
+      <div class="flex flex-col md:flex-row items-start">
+        <div class="w-full md:w-1/3 px-4">
+          <img
+            src="imgs\p51.jpg"
+            alt="Product Image 1"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p52.jpg"
+            alt="Product Image 2"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p53.jpg"
+            alt="Product Image 3"
+            class="w-full mb-4 rounded-lg"
+          />
+        </div>
+        <div class="w-full md:w-2/3 px-4 product-description">
+          <h2 class="text-3xl mb-4">
+            Samsung 8 Kg, 5 Star, Eco Bubble Technology With Super Speed, Wi-Fi,
+            Digital Inverter, Motor, Soft Closing Door, Fully-Automatic Top Load
+            Washing Machine (WA80BG4546BDTL, Versailles Gray)
+          </h2>
+          <p class="text-gray-400 mb-2"><strong>Price:</strong> Rs. 22,590</p>
+          <p class="text-gray-400 mb-2">
+            <strong>Offers:</strong> No Cost EMI Upto ₹2,680.79 EMI interest
+            savings on select Credit CardsUpto ₹1,980.79 EMI interest savings on
+            select Credit Cards, Bank Offer Upto ₹2,000.00 discount on select
+            Credit Cards, HDFC Bank Debit CardsUpto ₹2,000.00 discount on select
+            Credit Cards
+          </p>
+          <p class="text-gray-400 mb-2">
+            <strong>Tags:</strong> Electronics, Washing Machine, Samsung, Free
+            Delivery, 7 days Replacement by Brand 7 days Replacement by Brand
+          </p>
+          <p class="text-gray-400 mb-4">
+            <strong>About this item:</strong> Fully-automatic top load washing
+            machine: Affordable with great wash quality Easy to use Capacity 8
+            kg: Suitable for large families Energy Star rating : 5 Star- Best in
+            class efficiency Manufacturer Warranty:2 years comprehensive
+            warranty on the product, 20 years warranty on the DIT Motor Motor:
+            700 RPM: Higher spin speeds helps in faster washing and drying With
+            its high speed and efficiency it's perfect for busy households and
+            those who want to get laundry done quickly and effectively Wash
+            Programs: 10 Wash Programs – Quick Wash Baby Care Bedding Delicates
+            Eco Tub Clean Energy Saving Jeans Normal Rinse + Spin Bubble Storm
+            Intensive Wash Super Speed Power Tub Clean Delay End Smart Control
+            Drum type : Diamond| Pulsator : Dual Storm
+          </p>
+          <form action="/add-to-cart" method="post">
+            <input
+              type="hidden"
+              name="productId"
+              value="69e60dc5b1a308ddbec4bf96"
+            />
+            <input type="hidden" name="productName" value="Waching Machine" />
+            <input type="hidden" name="price" value="22590" />
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

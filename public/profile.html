@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="icon" href="imgs\logo.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .logout-btn {
+        border: none;
+        background-color: transparent;
+        color: rgb(220, 219, 219);
+        cursor: pointer;
+      }
+      .logout-btn:hover {
+        color: #ffffff;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        flex-grow: 1;
+        padding-bottom: 100px;
+      }
+      .section {
+        margin-bottom: 4rem;
+      }
+      .chk {
+        display: block;
+        margin: auto;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .chk:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <nav class="bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">NavBazaar</h1>
+      <div class="flex items-center justify-center">
+        <a href="/home" class="text-gray-300 hover:text-white mr-4">Home</a>
+        <a href="/about" class="text-gray-300 hover:text-white mr-4"
+          >About Us</a
+        >
+        <form action="/logout" method="post">
+          <button type="submit" class="logout-btn">Logout</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container mx-auto py-8">
+      <h1 class="text-3xl font-semibold mb-4 text-center">User Profile</h1>
+      <div class="section">
+        <h2 class="text-xl font-semibold mb-2">User Information</h2>
+        <p><strong>Name:</strong> <span id="fullName"></span></p>
+        <p><strong>Mobile Number:</strong> <span id="mobileNumber"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+      </div>
+      <form action="/delete" method="post" id="deleteAccountForm">
+        <button
+          type="submit"
+          class="bg-red-500 text-white px-4 py-2 rounded mt-4 chk"
+        >
+          Delete Account
+        </button>
+      </form>
+      <div class="section">
+        <h2 class="text-xl font-semibold mb-2">Cart</h2>
+        <div id="cartItems"></div>
+        <div id="cartTotal" class="mt-4"></div>
+      </div>
+      <form action="/checkout" method="get" id="checkoutForm">
+        <button
+          id="buyNowBtn"
+          class="bg-blue-500 text-white px-4 py-2 rounded mt-4 chk"
+        >
+          Buy Now
+        </button>
+      </form>
+      <div class="my-4"></div>
+      <form action="/empty-cart" method="post" id="deleteAllItemsBtn">
+        <button
+          type="submit"
+          class="bg-red-500 text-white px-4 py-2 rounded mt-4 chk"
+        >
+          Remove All items from cart
+        </button>
+      </form>
+    </div>
+    <footer class="footer bg-gray-800">
+      <div class="cont mx-auto text-center">
+        <p class="text-gray-400">Enjoy Shopping</p>
+      </div>
+    </footer>
+    <script>
+      window.onload = async function () {
+        try {
+          const response = await fetch("/user/profile", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          });
+          const userData = await response.json();
+          document.getElementById(
+            "fullName"
+          ).innerText = `${userData.firstName} ${userData.lastName}`;
+          document.getElementById("mobileNumber").innerText =
+            userData.mobileNumber;
+          document.getElementById("email").innerText = userData.email;
+          if (userData.cart.length > 0) {
+            const cartItemsDiv = document.getElementById("cartItems");
+            const cartTotalDiv = document.getElementById("cartTotal");
+            let totalPrice = 0;
+            userData.cart.forEach((item) => {
+              cartItemsDiv.innerHTML += `<p><strong>Product:</strong> ${item.productName}, <strong>Price:</strong> ${item.price}</p>`;
+              totalPrice += item.price;
+            });
+            cartTotalDiv.innerHTML = `<strong>Total:</strong> ${totalPrice}`;
+          } else {
+            document.getElementById("cartItems").innerText = "Cart is empty";
+            document.getElementById("cartTotal").innerText = "";
+            document.getElementById("checkoutForm").style.display = "none";
+            document.getElementById("deleteAllItemsBtn").style.display = "none";
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          alert("Error fetching user data. Please try again.");
+        }
+      };
+    </script>
+  </body>
+</html>

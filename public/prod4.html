@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="imgs\logo.png" type="image/x-icon" />
+    <title>NBboat</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #111827;
+        color: #f3f4f6;
+      }
+      .product-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .product-description p {
+        font-size: 1.1rem;
+        color: #d1d5db;
+        margin-bottom: 1.5rem;
+      }
+      .product-description p strong {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <section class="container mx-auto mt-8 product-section">
+      <div class="flex flex-col md:flex-row items-start">
+        <div class="w-full md:w-1/3 px-4">
+          <img
+            src="imgs\p31.jpg"
+            alt="Product Image 1"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p32.jpg"
+            alt="Product Image 2"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p33.jpg"
+            alt="Product Image 3"
+            class="w-full mb-4 rounded-lg"
+          />
+        </div>
+        <div class="w-full md:w-2/3 px-4 product-description">
+          <h2 class="text-3xl mb-4">
+            boAt Airdopes 141 Bluetooth TWS Earbuds with 42H Playtime,Low
+            Latency Mode for Gaming, ENx Tech, IWP, IPX4 Water Resistance,
+            Smooth Touch Controls(Bold Black)
+          </h2>
+          <p class="text-gray-400 mb-2"><strong>Price:</strong> Rs. 999</p>
+          <p class="text-gray-400 mb-2">
+            <strong>Offers:</strong> No Cost EMI Upto 28% EMI interest savings
+            on select Credit CardsUpto 28% EMI interest savings on select Credit
+            Cards, Bank Offer Upto 28% discount on select Credit Cards, HDFC
+            Bank Debit CardsUpto 28% discount on select Credit Cards
+          </p>
+          <p class="text-gray-400 mb-2">
+            <strong>Tags:</strong> Electronics, Airpods, Boat, Free Delivery, 7
+            days Replacement by Brand 7 days Replacement by Brand
+          </p>
+          <p class="text-gray-400 mb-4">
+            <strong>About this item:</strong> Playback- Enjoy an extended break
+            on weekends with your favourite episodes on stream, virtue of a
+            playback time of up to 42 hours including the 6 hours nonstop
+            playtime for earbuds. Low Latency- Our BEAST mode makes Airdopes 141
+            a partner in entertainment with real-time audio and low latency
+            experience. These tws earbuds are your companion for a perfect
+            gaming experience. Clear Voice Calls- It dons built-in mic on each
+            earbud along with our ENx Environmental Noise Cancellation tech that
+            ensures a smooth delivery of your voice via voice calls boAt
+            Signature Sound- Delve into your cherished boAt Immersive auditory
+            time with Airdopes 141 ASAP Charge- The tws earbuds are equipped
+            with our ASAP Charge feature that offers up to 75 min of playtime in
+            just 5 min of charge; while the carry case comes along with the Type
+            C interface Instant Connect- Connect to your morning playlists
+            without any hiccup via the Insta Wake N’ Pair technology that powers
+            on the earbuds as soon as you open the case cover IP Rating- The tws
+            earbuds body comes protected with IPX4 rating for water and sweat
+            resistance
+          </p>
+          <form action="/add-to-cart" method="post">
+            <input
+              type="hidden"
+              name="productId"
+              value="69e40dc5b1a308ddbec4bf96"
+            />
+            <input type="hidden" name="productName" value="Airdopes" />
+            <input type="hidden" name="price" value="999" />
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

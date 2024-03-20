@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="imgs\logo.png" type="image/x-icon" />
+    <title>NBwatch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #111827;
+        color: #f3f4f6;
+      }
+      .product-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .product-description p {
+        font-size: 1.1rem;
+        color: #d1d5db;
+        margin-bottom: 1.5rem;
+      }
+      .product-description p strong {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <section class="container mx-auto mt-8 product-section">
+      <div class="flex flex-col md:flex-row items-start">
+        <div class="w-full md:w-1/3 px-4">
+          <img
+            src="imgs\p41.jpg"
+            alt="Product Image 1"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p42.jpg"
+            alt="Product Image 2"
+            class="w-full mb-4 rounded-lg"
+          />
+          <img
+            src="imgs\p43.jpg"
+            alt="Product Image 3"
+            class="w-full mb-4 rounded-lg"
+          />
+        </div>
+        <div class="w-full md:w-2/3 px-4 product-description">
+          <h2 class="text-3xl mb-4">
+            Apple Watch Series 8 [GPS 45 mm] Smart Watch w/Midnight Aluminium
+            Case with Midnight Sport Band. Fitness Tracker, Blood Oxygen & ECG
+            Apps, Always-On Retina Display, Water Resistant
+          </h2>
+          <p class="text-gray-400 mb-2"><strong>Price:</strong> Rs. 38,999</p>
+          <p class="text-gray-400 mb-2">
+            <strong>Offers:</strong> No Cost EMI Upto ₹1,780.79 EMI interest
+            savings on select Credit CardsUpto ₹1,780.79 EMI interest savings on
+            select Credit Cards, Bank Offer Upto 28% discount on select Credit
+            Cards, HDFC Bank Debit CardsUpto 28%discount on select Credit Cards
+          </p>
+          <p class="text-gray-400 mb-2">
+            <strong>Tags:</strong> Electronics, Watch, Apple, Free Delivery, 7
+            days Replacement by Brand 7 days Replacement by Brand
+          </p>
+          <p class="text-gray-400 mb-4">
+            <strong>About this item:</strong> WHY APPLE WATCH SERIES 8 — Your
+            essential companion for a healthy life is now even more powerful.
+            Advanced sensors provide insights to help you better understand your
+            health. New safety features can get you help when you need it. The
+            bright, Always-On Retina display is easy to read, even when your
+            wrist is down. EASILY CUSTOMISABLE — Available in a range of sizes
+            and materials, with dozens of straps to choose from and watch faces
+            with complications tailored to whatever you’re into. INNOVATIVE
+            SAFETY FEATURES — Crash Detection and Fall Detection can
+            automatically connect you with emergency services in the event of a
+            severe car crash or a hard fall. And Emergency SOS provides urgent
+            assistance with the press of a button. ADVANCED HEALTH FEATURES —
+            Temperature sensing is a breakthrough feature that provides deep
+            insights into women’s health. Keep an eye on your blood oxygen. Take
+            an ECG anytime. Get notifications if you have an irregular rhythm.
+            And see how much time you spent in REM, Core or Deep sleep with
+            sleep stages. SIMPLY COMPATIBLE — It works seamlessly with your
+            Apple devices and services. Unlock your Mac automatically. Find your
+            devices with a tap. Apple Watch requires an iPhone 8 or later with
+            the latest iOS version.
+          </p>
+          <form action="/add-to-cart" method="post">
+            <input
+              type="hidden"
+              name="productId"
+              value="69e50dc5b1a308ddbec4bf96"
+            />
+            <input type="hidden" name="productName" value="Watch" />
+            <input type="hidden" name="price" value="38999" />
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
