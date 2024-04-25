@@ -38,6 +38,15 @@ const userSchema = new mongoose.Schema({
     pinCode: { type: String, minlength: 6, maxlength: 6 },
     street: String,
   },
+  purchasedItems: [
+    {
+      productId: mongoose.Schema.Types.ObjectId,
+      productName: String,
+      price: Number,
+      quantity: Number,
+      purchaseDate: { type: Date, default: Date.now },
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
@@ -279,6 +288,10 @@ app.get("/checkout", async (req, res) => {
     const userEmail = req.session.email;
     const user = await User.findOne({ email: userEmail });
     const dp = pinc;
+    if (user) {
+      user.purchasedItems.push(...user.cart.map((item) => ({ ...item._doc })));
+      await user.save();
+    }
     if (user.address.pinCode == dp) {
       res.sendFile(path.join(__dirname, "public", "checkout.html"));
     } else {
@@ -292,7 +305,6 @@ app.get("/checkout", async (req, res) => {
 
 app.post("/checkout", async (req, res) => {
   const { email, country, state, city, pinCode, street } = req.body;
-
   try {
     const userEmail = req.session.email;
     const user = await User.findOne({ email: userEmail });
@@ -300,6 +312,7 @@ app.post("/checkout", async (req, res) => {
     if (user) {
       user.address = { country, state, city, pinCode, street };
       await user.save();
+
       res.redirect("/order_confirmation");
     } else {
       return res.redirect("/error/404");
@@ -358,6 +371,11 @@ app.get("/order/details", async (req, res) => {
     }
 
     res.status(200).json(user.cart);
+
+    await User.findOneAndUpdate(
+      { email: userEmail },
+      { cart: [], totalAmount: 0 }
+    );
   } catch (error) {
     console.error("Error fetching user cart:", error);
     return res.redirect("/error/500");

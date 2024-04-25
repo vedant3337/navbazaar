@@ -82,14 +82,6 @@
         <p><strong>Mobile Number:</strong> <span id="mobileNumber"></span></p>
         <p><strong>Email:</strong> <span id="email"></span></p>
       </div>
-      <form action="/delete" method="post" id="deleteAccountForm">
-        <button
-          type="submit"
-          class="bg-red-500 text-white px-4 py-2 rounded mt-4 chk"
-        >
-          Delete Account
-        </button>
-      </form>
       <div class="section">
         <h2 class="text-xl font-semibold mb-2">Cart</h2>
         <div id="cartItems"></div>
@@ -103,13 +95,24 @@
           Buy Now
         </button>
       </form>
-      <div class="my-4"></div>
       <form action="/empty-cart" method="post" id="deleteAllItemsBtn">
+        <button
+          type="submit"
+          class="mt-5 bg-red-500 text-white px-4 py-2 rounded mt-4 chk"
+        >
+          Remove All items from cart
+        </button>
+      </form>
+      <div class="section mt-12">
+        <h2 class="text-xl font-semibold mb-2">Purchased Items</h2>
+        <div id="purchasedItems"></div>
+      </div>
+      <form action="/delete" method="post" id="deleteAccountForm">
         <button
           type="submit"
           class="bg-red-500 text-white px-4 py-2 rounded mt-4 chk"
         >
-          Remove All items from cart
+          Delete Account
         </button>
       </form>
     </div>
@@ -135,20 +138,27 @@
           document.getElementById("mobileNumber").innerText =
             userData.mobileNumber;
           document.getElementById("email").innerText = userData.email;
+
+          // Display cart items
           if (userData.cart.length > 0) {
             const cartItemsDiv = document.getElementById("cartItems");
-            const cartTotalDiv = document.getElementById("cartTotal");
-            let totalPrice = 0;
             userData.cart.forEach((item) => {
               cartItemsDiv.innerHTML += `<p><strong>Product:</strong> ${item.productName}, <strong>Price:</strong> ${item.price}</p>`;
-              totalPrice += item.price;
             });
-            cartTotalDiv.innerHTML = `<strong>Total:</strong> ${totalPrice}`;
           } else {
-            document.getElementById("cartItems").innerText = "Cart is empty";
-            document.getElementById("cartTotal").innerText = "";
-            document.getElementById("checkoutForm").style.display = "none";
-            document.getElementById("deleteAllItemsBtn").style.display = "none";
+            document.getElementById("cartItems").innerText =
+              "No items in the cart";
+          }
+
+          // Display purchased items
+          if (userData.purchasedItems.length > 0) {
+            const purchasedItemsDiv = document.getElementById("purchasedItems");
+            userData.purchasedItems.forEach((item) => {
+              purchasedItemsDiv.innerHTML += `<p><strong>Product:</strong> ${item.productName}, <strong>Price:</strong> ${item.price}</p>`;
+            });
+          } else {
+            document.getElementById("purchasedItems").innerText =
+              "No items purchased yet";
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
